@@ -34,7 +34,18 @@
         </v-alert>
       </div>
       <div v-for="(type, index) in datatypes" :key="index">
-        <v-echarts :ref="index" :datatype="type.datatype" :polygon="polygon" :dateBegin="dateBegin" :dateEnd="dateEnd" :zonalType="type.zonalType" :timeMode="timeMode"  @loaded="loading = $event" @add-pie-data="updateGraphData($event)" @add-graph="graphs.push($event)"></v-echarts>
+        <v-echarts
+          :ref="index"
+          :datatype="type.datatype"
+          :polygon="polygon"
+          :dateBegin="dateBegin"
+          :dateEnd="dateEnd"
+          :zonalType="type.zonalType"
+          :timeMode="timeMode"
+          @loaded="loading = $event"
+          @add-pie-data="updateGraphData($event)"
+          @add-graph="graphs.push($event)">
+        </v-echarts>
       </div>
       <v-timeseries v-if="$route.name === 'voorspel'" :options="voorspelOptions">
       </v-timeseries>
@@ -159,7 +170,7 @@ export default {
           this.properties.push({
             value: false,
             name: prop.name,
-            data: e.features[0].properties[prop.key]
+            data: e.features[0].properties[prop.key] ||  e.features[0].properties[prop.key.replace("_", "")]
           })
         })
       }
@@ -184,13 +195,17 @@ export default {
         this.selectedProperty === layer.selectProperty
       ) {
         this.datatypes = []
+        this.graphData = []
         this.closeSelectMode()
+        this.filter = ''
       } else {
         this.datatypes = []
         this.selectedProperty = layer.selectProperty
         const feature = this.map.queryRenderedFeatures(e.point, {
           layers: [layer.baseLayer]
         })[0]
+
+        console.log(feature)
         // this.datatypes = layer.datatypes
         const datatypes = []
         this.graphdata = []
@@ -238,7 +253,8 @@ export default {
     },
     // Build pdf with table, two piecharts and snapshot of mapbox
     downloadSelection() {
-      var doc = new jsPDF()
+      var doc = {}
+      doc = new jsPDF()
       var W = doc.internal.pageSize.getWidth()
       var H = doc.internal.pageSize.getHeight()
 
