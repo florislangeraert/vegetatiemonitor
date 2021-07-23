@@ -553,7 +553,7 @@ const mapLayers = [
         source: {
           type: 'raster',
           tiles: [
-            'https://geodata.nationaalgeoregister.nl/luchtfoto/rgb/wms?SERVICE=WMS&&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=Actueel_ortho25&STYLES=default&CRS=EPSG%3A3857&WIDTH=256&HEIGHT=256&bbox={bbox-epsg-3857}'
+            'https://service.pdok.nl/hwh/luchtfotorgb/wms/v1_0?SERVICE=WMS&&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=Actueel_ortho25&STYLES=default&CRS=EPSG%3A3857&WIDTH=256&HEIGHT=256&bbox={bbox-epsg-3857}'
           ],
           tilesize: 256
         }

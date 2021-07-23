@@ -48,8 +48,8 @@
           <v-alert outlined type="info" v-if="downloading">
             {{downloadText}}
           </v-alert>
-          <v-alert outlined type="warning" v-if="map.getZoom() < 11">
-            Zoom in op de kaart om het te downloaden gebied te verkleinen.
+          <v-alert outlined type="warning" v-if="map.getZoom() < minZoom">
+            Zoom in op de kaart tot zoomniveau {{ minZoom }} om het te downloaden gebied te verkleinen. Huidig zoomniveau: {{ typeof(this.map.getZoom) !== 'undefined' && Math.floor(this.map.getZoom() * 10) / 10 }}
           </v-alert>
           <v-alert outlined type="error" v-if="error != ''">
             {{error}}
@@ -60,7 +60,7 @@
         <div class="pa-4">
           <v-btn
             class="mb-1"
-            :disabled="downloading || map.getZoom() < 11"
+            :disabled="downloading || map.getZoom() < minZoom"
             block
             outlined
             color="btncolor"
@@ -70,7 +70,7 @@
           </v-btn>
           <v-btn
             class="mb-1"
-            :disabled="downloading || !bbox.coordinates || map.getZoom() < 11"
+            :disabled="downloading || !bbox.coordinates || map.getZoom() < minZoom"
             block
             outlined
             color="btncolor"
@@ -134,7 +134,8 @@ export default {
       bbox: {},
       draw: {},
       downloading: false,
-      error: ''
+      error: '',
+      minZoom: 11.7
     }
   },
   components: { SelectPeriod },
