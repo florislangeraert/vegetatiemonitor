@@ -109,7 +109,7 @@ export default {
             }
           ]
         },
-        scale: 10
+        scale: 1
       }
 
       // If in voorspel mode,  the timeseries
