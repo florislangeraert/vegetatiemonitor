@@ -351,9 +351,9 @@ const mapLayers = [
             'https://storage.googleapis.com/vegetatiemonitor/classificatie-vs-legger-video/{z}/{x}/{y}.webm'
           ],
           tileSize: 256,
-          durationSec: 2.1,
+          durationSec: 2.2,
           dateBegin: '2000-01-01',
-          dateEnd: '2021-01-01',
+          dateEnd: '2022-01-01',
           maxzoom: 14,
           minzoom: 9,
           scheme: 'xyz',
@@ -412,9 +412,9 @@ const mapLayers = [
             'https://storage.googleapis.com/vegetatiemonitor/classificatie_v2-video/{z}/{x}/{y}.webm'
           ],
           tileSize: 256,
-          durationSec: 2.1,
+          durationSec: 2.2,
           dateBegin: '2000-01-01',
-          dateEnd: '2021-01-01',
+          dateEnd: '2022-01-01',
           maxzoom: 14,
           minzoom: 9,
           scheme: 'xyz',
@@ -508,12 +508,12 @@ const mapLayers = [
         source: {
           type: 'video-tiled',
           tiles: [
-            'https://storage.googleapis.com/vegetatiemonitor/satellite-natural_v2-video/{z}/{x}/{y}.webm'
+            'https://storage.googleapis.com/vegetatiemonitor/satellite-natural-video/{z}/{x}/{y}.webm'
           ],
           tileSize: 512,
-          durationSec: 2.1,
+          durationSec: 2.2,
           dateBegin: '2000-01-01',
-          dateEnd: '2021-01-01',
+          dateEnd: '2022-01-01',
           maxzoom: 14,
           minzoom: 9,
           scheme: 'xyz',
