@@ -7,9 +7,7 @@ export const state = {
   layers: [],
   imagePeriod: ['01-01-2019', '01-02-2019'],
   overallTimePeriod: ['01-01-1984', moment().format('DD-MM-YYYY')],
-  // SERVER_URL: 'https://vegetatie-monitor.appspot.com'
-  SERVER_URL: 'https://v2-test-dot-vegetatie-monitor.appspot.com'
-  // SERVER_URL: 'https://dev1-dot-vegetatie-monitor.appspot.com'
+  SERVER_URL: 'https://vegetatie-monitor.appspot.com'
 }
 
 export const mutations = {
