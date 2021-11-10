@@ -1,8 +1,9 @@
 # develop stage
-FROM node:8.8-alpine as develop-stage
+FROM node:14-alpine as develop-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN apk --no-cache add git
+RUN yarn install
 COPY . .
 
 # build stage
